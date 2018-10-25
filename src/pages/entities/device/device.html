@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Devices</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="open()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<!-- todo: add elasticsearch support -->
+<ion-content padding>
+    <ion-refresher (ionRefresh)="loadAll($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+        <ion-item-sliding *ngFor="let device of devices; trackBy: trackId" #slidingItem>
+            <button ion-item (click)="detail(device)">
+                <h2>{{device.name}}</h2>
+                <p>{{device.deveui}}</p>
+                <p>{{device.location}}</p>
+                <p>{{device.lastMessageAt | date:'medium'}}</p>
+                <!-- todo: special handling for translating enum - {{'DeviceModel.' + device.model}}" -->
+<!--                <p>{{device.model}}</p> -->
+                <!-- todo: special handling for translating enum - {{'Network.' + device.network}}" -->
+<!--                <p>{{device.network}}</p>
+                <p>{{device.deveui}}</p>
+                <p>{{device.appeui}}</p>
+                <p>{{device.appkey}}</p>
+                <p>{{device.delayBeforeOffline}}</p>
+                <p>{{device.createdAt | date:'medium'}}</p>
+                <p>{{device.registeredAt | date:'medium'}}</p>
+                <p>{{device.lastMessageAt | date:'medium'}}</p>-->
+                <!-- todo: special handling for translating enum - {{'MessageType.' + device.type}}" -->
+<!--                 <p>{{device.type}}</p>
+                <p>{{device.fcnt}}</p>
+                <p>{{device.latitude}}</p>
+                <p>{{device.longitude}}</p>
+                <p>{{device.altitude}}</p>
+               <p>{{device.batteryLevel}}</p> -->
+            </button>
+            <ion-item-options>
+                <button ion-button color="primary" (click)="open(slidingItem, device)">
+                    {{ 'EDIT_BUTTON' | translate }}
+                </button>
+                <button ion-button color="danger" (click)="delete(device)">
+                    {{ 'DELETE_BUTTON' | translate }}
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    <ion-item *ngIf="!devices?.length">
+        No Devices found.
+    </ion-item>
+</ion-content>

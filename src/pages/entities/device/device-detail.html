@@ -1,0 +1,117 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Device</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label fixed>Name</ion-label>
+            <div item-content>
+                <span>{{device.name}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Location</ion-label>
+            <div item-content>
+                <span>{{device.location}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Model</ion-label>
+            <div item-content>
+                <span>{{device.model}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Network</ion-label>
+            <div item-content>
+                <span>{{device.network}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Deveui</ion-label>
+            <div item-content>
+                <span>{{device.deveui}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Appeui</ion-label>
+            <div item-content>
+                <span>{{device.appeui}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Appkey</ion-label>
+            <div item-content>
+                <span>{{device.appkey}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Delay Before Offline</ion-label>
+            <div item-content>
+                <span>{{device.delayBeforeOffline}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Created At</ion-label>
+            <div item-content>
+                <span>{{device.createdAt | date:'medium'}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Registered At</ion-label>
+            <div item-content>
+                <span>{{device.registeredAt | date:'medium'}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Last Message At</ion-label>
+            <div item-content>
+                <span>{{device.lastMessageAt | date:'medium'}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Type</ion-label>
+            <div item-content>
+                <span>{{device.type}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Fcnt</ion-label>
+            <div item-content>
+                <span>{{device.fcnt}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Latitude</ion-label>
+            <div item-content>
+                <span>{{device.latitude}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Longitude</ion-label>
+            <div item-content>
+                <span>{{device.longitude}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Altitude</ion-label>
+            <div item-content>
+                <span>{{device.altitude}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Battery Level</ion-label>
+            <div item-content>
+                <span>{{device.batteryLevel}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label>Created By</ion-label>
+            <div item-content>{{device.createdByLogin}}</div>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="open(device)">{{ 'EDIT_BUTTON' | translate }}</button>
+</ion-content>

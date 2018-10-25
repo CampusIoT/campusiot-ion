@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Message</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label fixed>Date</ion-label>
+            <div item-content>
+                <span>{{message.date | date:'medium'}}</span>
+            </div>
+        </ion-item>
+
+        <ion-item (click)="detailDevice(message.sentById)">>
+            <ion-label fixed>DevEUI</ion-label>
+            <div item-content>
+                <span>{{message.sentByDeveui}}</span>
+                 <ion-icon name="arrow-dropright" item-end></ion-icon>
+            </div>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Type</ion-label>
+            <div item-content>
+                <span>{{message.type}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Fcnt</ion-label>
+            <div item-content>
+                <span>{{message.fcnt}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Network</ion-label>
+            <div item-content>
+                <span>{{message.network}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Payload</ion-label>
+            <div item-content>
+              {{toHexstring(message.payload)}}
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Json</ion-label>
+            <div item-content>
+                <span>{{message.json}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Latitude</ion-label>
+            <div item-content>
+                <span>{{message.latitude}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Longitude</ion-label>
+            <div item-content>
+                <span>{{message.longitude}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Altitude</ion-label>
+            <div item-content>
+                <span>{{message.altitude}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Battery Level</ion-label>
+            <div item-content>
+                <span>{{message.batteryLevel}}</span>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>Device Owner</ion-label>
+            <div item-content>{{message.deviceOwnerLogin}}</div>
+        </ion-item>
+    </ion-list>
+
+    <!-- <button ion-button block (click)="open(message)">{{ 'EDIT_BUTTON' | translate }}</button> -->
+</ion-content>
