@@ -1,0 +1,7 @@
+{
+  "name": "campusiot-ion",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
