@@ -12,7 +12,7 @@
   "SIGNUP": "Sign up",
 
   "TAB1_TITLE": "Home",
-  "TAB2_TITLE": "Entities",
+  "TAB2_TITLE": "Ressources",
   "TAB3_TITLE": "Settings",
 
   "MAP_TITLE": "Map",
@@ -72,5 +72,29 @@
   "CARDS_TITLE": "Social",
 
   "SEARCH_TITLE": "Search",
-  "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Nucleo\""
+  "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Nucleo\"",
+
+
+  "HOME": "Home",
+  "TABS": "Tabs",
+  "MENU": "Menu",
+  "SETTINGS": "Settings",
+
+  "DONT_HAVE_ACCOUNT": "Don't have an account yet?",
+
+  "ENTITIES": "Ressources",
+  "ENTITY": "Ressource",
+
+  "DEVICES": "Devices",
+  "DEVICE": "Device",
+  "NO_DEVICES_FOUND": "No Devices found.",
+
+  "MESSAGES": "Messages",
+  "MESSAGE": "Message",
+  "NO_MESSAGES_FOUND": "No Messages found.",
+
+  "MAP": "Map",
+
+  "ABOUT": "About",
+  "CONTACT": "Contact"
 }

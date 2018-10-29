@@ -5,9 +5,9 @@
   "LOGIN": "Connexion",
   "SIGNUP": "Inscription",
 
-  "TAB1_TITLE": "Items",
-  "TAB2_TITLE": "Recherche",
-  "TAB3_TITLE": "Paramètres",
+  "TAB1_TITLE": "Principal",
+  "TAB2_TITLE": "Resources",
+  "TAB3_TITLE": "Préférences",
 
   "MAP_TITLE": "Carte",
 
@@ -20,7 +20,7 @@
   "TUTORIAL_SLIDE3_TITLE": "Pour commencer",
   "TUTORIAL_SLIDE3_DESCRIPTION": "Si vous avez besoin d’aide, consultez le README du Super Starter pour un tutoriel complet.",
 
-  "SETTINGS_TITLE": "Paramètres",
+  "SETTINGS_TITLE": "Préférences",
   "SETTINGS_OPTION1": "Option 1",
   "SETTINGS_OPTION2": "Option 2",
   "SETTINGS_OPTION3": "Option 3",
@@ -44,5 +44,30 @@
 
   "CARDS_TITLE": "Social",
 
-  "SEARCH_TITLE": "Recherche"
+  "SEARCH_TITLE": "Recherche",
+
+
+  "HOME": "Principal",
+  "TABS": "Tabs",
+  "MENU": "Menu",
+  "SETTINGS": "Préférences",
+
+  "DONT_HAVE_ACCOUNT": "Vous n'avez pas encore de compte ?",
+
+  "ENTITIES": "Resources",
+  "ENTITY": "Resource",
+
+  "DEVICES": "Equipements",
+  "DEVICE": "Equipement",
+  "NO_DEVICES_FOUND": "Aucun équipement trouvé.",
+
+  "MESSAGES": "Messages",
+  "MESSAGE": "Message",
+  "NO_MESSAGES_FOUND": "Aucun message trouvé.",
+
+  "MAP": "Carte",
+
+  "ABOUT": "A propos",
+  "CONTACT": "Contact"
+
 }
