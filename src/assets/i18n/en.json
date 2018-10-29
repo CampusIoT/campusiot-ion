@@ -5,6 +5,7 @@
   "FIRST_NAME": "First Name",
   "LAST_NAME": "Last Name",
   "EMAIL": "Email",
+  "EMAIL_CONFIRM": "Confirm Email",
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "REMEMBER_ME": "Remember Me",
@@ -55,6 +56,7 @@
   "INVALID_PASSWORD_ERROR": "Invalid password, please try again.",
   "SIGNUP_BUTTON": "Sign up",
   "SIGNOUT_BUTTON": "Sign Out",
+  "EMAIL_CONFIRM_ERROR": "Emails must be the same.",
 
   "LIST_MASTER_TITLE": "Items",
 

@@ -1,7 +1,12 @@
 {
   "NAME": "Nom",
-  "PASSWORD": "Mot de passe",
+  "FIRST_NAME": "Prénom",
+  "LAST_NAME": "Nom",
   "EMAIL": "E-mail",
+  "EMAIL_CONFIRM": "Confirme E-mail",
+  "USERNAME": "Username",
+  "PASSWORD": "Mot de passe",
+  "REMEMBER_ME": "Rester connecté",
   "LOGIN": "Connexion",
   "SIGNUP": "Inscription",
 
@@ -36,6 +41,7 @@
   "SIGNUP_TITLE": "Inscription",
   "SIGNUP_ERROR": "Inscription impossible. Veuillez vérifier les informations de votre compte et réessayer.",
   "SIGNUP_BUTTON": "Inscription",
+  "EMAIL_CONFIRM_ERROR": "Les adresses email doivent être identiques.",
 
   "LIST_MASTER_TITLE": "Items",
 
