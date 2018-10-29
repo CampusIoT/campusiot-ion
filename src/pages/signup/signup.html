@@ -27,6 +27,11 @@
       </ion-item>
 
       <ion-item>
+        <ion-label floating>{{ 'EMAIL_CONFIRM' | translate }}</ion-label>
+        <ion-input type="email" [(ngModel)]="account.email_confirm" name="email_confirm"></ion-input>
+      </ion-item>
+
+      <ion-item>
         <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
         <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
       </ion-item>

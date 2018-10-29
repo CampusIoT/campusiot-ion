@@ -12,14 +12,18 @@ import { MainPage } from '../pages';
 })
 export class SignupPage {
   // The account fields for the signup form
-  account: { login: string, email: string, firstName: string, lastName: string, password: string, langKey: string } = {
+  account: { login: string, email: string, email_confirm: string, firstName: string, lastName: string, password: string, langKey: string } = {
     login: '',
     email: '',
+    email_confirm: '',
     firstName: '',
     lastName: '',
     password: '',
     langKey: 'en'
   };
+
+  // TODO add validators for username, email and strong password
+  // https://ionicthemes.com/tutorials/about/forms-and-validation-in-ionic
 
   // Our translated text strings
   private signupErrorString: string;
@@ -33,15 +37,26 @@ export class SignupPage {
     public translateService: TranslateService) {
 
     this.translateService.get(['SIGNUP_ERROR', 'SIGNUP_SUCCESS',
-      'EXISTING_USER_ERROR', 'INVALID_PASSWORD_ERROR']).subscribe((values) => {
+      'EXISTING_USER_ERROR', 'INVALID_PASSWORD_ERROR', 'EMAIL_CONFIRM_ERROR']).subscribe((values) => {
       this.signupErrorString = values.SIGNUP_ERROR;
       this.signupSuccessString = values.SIGNUP_SUCCESS;
       this.existingUserError = values.EXISTING_USER_ERROR;
       this.invalidPasswordError = values.INVALID_PASSWORD_ERROR;
+      this.EmailConfirmError = values.EMAIL_CONFIRM_ERROR;
     })
   }
 
   doSignup() {
+    if(this.account.email !== this.account.email_confirm) {
+      let toast = this.toastCtrl.create({
+          message: displayError,
+          duration: 3000,
+          position: 'middle'
+      });
+      toast.present();
+      return;
+    }
+
     // set login to same as email
     this.account.login = this.account.email;
     // Attempt to login in through our User service
