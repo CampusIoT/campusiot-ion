@@ -36,7 +36,7 @@ export class MyApp {
     { title: 'Tabs', component: 'TabsPage', icon: 'home' },
     { title: 'Login', component: 'LoginPage', icon: 'log-in' },
     { title: 'Signup', component: 'SignupPage', icon: 'person-add' },
-    { title: 'Menu', component: 'MenuPage', icon: 'menu' },
+//    { title: 'Menu', component: 'MenuPage', icon: 'menu' },
 //    { title: 'Entities', component: 'EntityPage', icon: 'logo-buffer' },
     { title: 'Devices', component: 'DevicePage', icon: 'cube' },
     { title: 'Messages', component: 'MessagePage', icon: 'mail' },
