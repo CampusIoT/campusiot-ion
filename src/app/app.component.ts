@@ -17,7 +17,8 @@ import { Settings } from '../providers/providers';
     <ion-content>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
+          <ion-icon name="{{p.icon}}" start-item></ion-icon>
+          {{p.title.toUpperCase() | translate }}
         </button>
       </ion-list>
     </ion-content>
@@ -31,13 +32,18 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Welcome', component: 'WelcomePage' },
-    { title: 'Tabs', component: 'TabsPage' },
-    { title: 'Login', component: 'LoginPage' },
-    { title: 'Signup', component: 'SignupPage' },
-    { title: 'Menu', component: 'MenuPage' },
-    { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Entities', component: 'EntityPage' }
+    { title: 'HOME', component: 'WelcomePage', icon: 'home' },
+    { title: 'Tabs', component: 'TabsPage', icon: 'home' },
+    { title: 'Login', component: 'LoginPage', icon: 'log-in' },
+    { title: 'Signup', component: 'SignupPage', icon: 'person-add' },
+    { title: 'Menu', component: 'MenuPage', icon: 'menu' },
+//    { title: 'Entities', component: 'EntityPage', icon: 'logo-buffer' },
+    { title: 'Devices', component: 'DevicePage', icon: 'cube' },
+    { title: 'Messages', component: 'MessagePage', icon: 'mail' },
+    { title: 'Map', component: 'MapPage', icon: 'map' },
+    { title: 'Settings', component: 'SettingsPage', icon: 'cog' },
+    { title: 'Contact', component: 'ContactPage', icon: 'contact' },
+    { title: 'About', component: 'AboutPage', icon: 'information' }
   ];
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config,
