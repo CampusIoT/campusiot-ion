@@ -42,6 +42,11 @@ export ANDROID_HOME=/Users/$USER/Library/Android/sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ```
 
+Check the installation:
+```bash
+cordova prepare
+```
+
 Accept the licenses in the Android SDK
 
 Create an AVD from a Android project for the emulated device (Nexus5XAPI26 in my case : I don't know how to get a AVD)
@@ -56,7 +61,7 @@ ionic cordova emulate android
 
 Set the address (IP,DNS) of the backend into src/providers/api/api.ts
 
-Set your Android mobile phone/tablet in the dev mode ([howto](https://neilberry.com/blog/post.php?s=2017-01-07-how-to-run-your-ionic-app-on-real-devices)) and activate debug by USB (Go to developer options and enable USB Debugging: Settings > More > Developer Options > Debugging > USB Debugging).
+Set your Android mobile phone/tablet in the dev mode ([howto](https://developer.android.com/studio/debug/dev-options)) and activate debug by USB (Go to developer options and enable USB Debugging: Settings > More > Developer Options > Debugging > USB Debugging).
 
 You can install and run the application into your Android mobile phone/tablet (LG G3 in my case):
 ```bash
@@ -78,11 +83,23 @@ ionic cordova build ios
 ionic cordova emulate ios
 ```
 
-You can install and run the application on your iOS mobile phone/tablet:
+
+You can install and run the application on your iOS mobile phone/tablet ([howto](https://neilberry.com/blog/post.php?s=2017-01-07-how-to-run-your-ionic-app-on-real-devices)):
 ```bash
 ionic cordova build ios
 ionic cordova run ios --device
 ```
+
+### Production version
+
+```bash
+ionic cordova build ios --prod
+ionic cordova build android --prod
+ionic cordova run ios --prod
+ionic cordova run android --prod
+```
+
+
 
 ## Developer section
 
