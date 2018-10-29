@@ -1,27 +1,63 @@
 # CampusIoT Mobile App
 
-> Generated with [Ionic for JHipster](https://github.com/oktadeveloper/generator-jhipster-ionic).
+> This application has been generated with [Ionic for JHipster](https://github.com/oktadeveloper/generator-jhipster-ionic).
 
 [![Build Status][travis-image]][travis-url]
 
-## Table of Contents
-
-1. [Getting Started](#getting-started)
-2. [Pages](#pages)
-3. [Providers](#providers)
-4. [i18n](#i18n) (adding languages)
-5. [Testing](#testing)
-
 ## License
-Apache-2.0 © [Okta](https://developer.okta.com/) for the generated code
+* Apache-2.0 © [Okta](https://developer.okta.com/) for the generated code
+* Apache-2.0 for the additional code
 
 ## Getting Started
 
-To use this starter, install the latest version of the Ionic CLI and run:
+### Install and run
+
+To use this app, run the backend (a JHipster monolythic application):
 
 ```bash
+git clone https://github.com/CampusIoT/campusiot-app.git
+cd campusiot-app
+./mvnw
+```
+
+Then, install the latest version of the [Ionic CLI](https://ionicframework.com/docs/cli/) and run:
+
+```bash
+git clone https://github.com/CampusIoT/campusiot-ion.git
+cd campusiot-ion
 ionic serve
 ```
+### Getting Started with Android
+
+Set the address (IP,DNS) of the backend into src/providers/api/api.ts
+
+You can run the application on the Android emulator:
+```bash
+TODO
+```
+
+You can install and run the application into your Android mobile phone/tablet:
+```bash
+TODO
+```
+### Getting Started with iOS
+
+Set the address (IP,DNS) of the backend in src/providers/api/api.ts
+
+You can run the application on the iOS emulator:
+```bash
+TODO
+```
+
+You can install and run the application on your iOS mobile phone/tablet:
+```bash
+TODO
+```
+
+## Developer section
+
+### TODOLIST
+
 
 ### Tips
 
