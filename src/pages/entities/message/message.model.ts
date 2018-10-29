@@ -28,6 +28,7 @@ export class Message implements BaseEntity {
         public altitude?: number,
         public batteryLevel?: number,
         public sentById?: number,
+        public sentByDeveui?: string,
         public deviceOwnerId?: number,
     ) {
     }

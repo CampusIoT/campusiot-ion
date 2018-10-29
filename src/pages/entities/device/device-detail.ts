@@ -44,6 +44,12 @@ export class DeviceDetailPage {
     }
 
     map(device: Device) {
-      this.navCtrl.push('MapPage', {device: device});
+      let marker = {
+        title: "Device: "+device.deveui + "<br/>" + device.name,
+        radius: 100,
+        zoom: 17,
+        ll: [device.latitude, device.longitude]
+      };
+      this.navCtrl.push('MapPage', {marker: marker});
     }
 }

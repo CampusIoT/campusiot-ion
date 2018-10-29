@@ -64,6 +64,12 @@ export class MessageDetailPage {
     }
 
     map(message: Message) {
-      this.navCtrl.push('MapPage', {message: Message});
+      let marker = {
+        title: "Device: "+message.sentByDeveui + "<br/>" + message.date,
+        radius: 100,
+        zoom: 17,
+        ll: [message.latitude, message.longitude]
+      };
+      this.navCtrl.push('MapPage', {marker: marker});
     }
 }

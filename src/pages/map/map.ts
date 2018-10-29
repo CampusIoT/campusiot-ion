@@ -10,6 +10,16 @@ const GEOLOCATION_OPTIONS: GeolocationOptions = {
    maximumAge: 3000, timeout: 5000, enableHighAccuracy: true
 };
 
+// TODO
+// ====
+// Add Devices positions
+// Add Gateways positions
+// Add Messages positions (lines with SNR/RSSI between devices and gateways)
+// Add Devices tracks
+// Add GeoJSON per user
+// Edit Device position
+// Edit Gateway position
+
 @IonicPage()
 @Component({
   selector: 'page-map',
@@ -24,18 +34,30 @@ export class MapPage {
 
   private geolocationSubscription;
 
+  private marker: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private geolocation: Geolocation,
     public toastCtrl: ToastController
-  ) {}
+  ) {
+    console.log('constructor MapPage', navParams.data);
+    let marker = navParams.get("marker");
+    if(marker) {
+      this.marker = marker;
+    }
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MapPage');
 
     //set map center
-    this.center = [45.1985564,5.7601739]; //Campus
+    if(this.marker) {
+      this.center = this.marker.ll;
+    } else {
+      this.center = [45.1985564,5.7601739]; //Campus
+    }
 
     //setup leaflet map
     this.initMap();
@@ -44,7 +66,8 @@ export class MapPage {
     let toast = this.toastCtrl.create({
       message: 'To locate your position, press icon button in top right corner ',
       position: 'middle',
-      showCloseButton: true
+      duration: 3000
+      //showCloseButton: true
     });
     toast.present();
   }
@@ -52,12 +75,33 @@ export class MapPage {
   initMap() {
     this.map = L.map('map', {
       center: this.center,
-      zoom: 13
+      zoom: 12
     });
 
     //Add OSM Layer
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
       .addTo(this.map);
+
+    if(this.marker) {
+      // TODO add different icons (m.setIcon)
+      var m = L.marker(this.marker.ll).addTo(this.map);
+      m.bindPopup(this.marker.title).openPopup();
+
+      if(this.marker.radius){
+        var circle = L.circle(this.marker.ll, {
+          color: 'blue',
+          fillColor: '#aae1f0',
+          fillOpacity: 0.4,
+          radius: this.marker.radius
+        }).addTo(this.map);
+      }
+
+      if(this.marker.zoom){
+        this.map.setZoom(this.marker.zoom);
+      }
+
+    }
+
   }
 
   toggleFollow() {
@@ -83,7 +127,9 @@ export class MapPage {
   }
 
   updateGeoposition(position: Geoposition) {
-    if(!position) return;
+    if((!position) || (!position.coords)) return;
+
+    var zoom = this.map.getZoom();
 
     console.log(position.coords.longitude + ' ' + position.coords.latitude);
 
@@ -99,7 +145,7 @@ export class MapPage {
     }
 
     //Set Center
-    this.map.setView(latlng, 14);
+    this.map.setView(latlng, zoom);
   }
 
 }
