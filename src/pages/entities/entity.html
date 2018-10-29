@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Entities
+      {{ 'ENTITIES' | translate }}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,7 +10,21 @@
   <ion-list>
     <ion-item *ngFor="let entity of entities" (click)="openPage(entity)">
       <ion-icon name="{{entity.icon}}" item-start></ion-icon>
-      <h2>{{entity.name}}</h2>
+      <h2>{{ entity.name.toUpperCase() | translate}}</h2>
     </ion-item>
   </ion-list>
+
+  <!--
+  <ion-list>
+    <ion-item (click)="openPage(entities[0])">
+      <ion-icon name="cube" item-start></ion-icon>
+      <h2>{{ 'DEVICES' | translate}}</h2>
+    </ion-item>
+    <ion-item (click)="openPage(entities[1])">
+      <ion-icon name="mail" item-start></ion-icon>
+      <h2>{{ 'MESSAGES' | translate}}</h2>
+    </ion-item>
+  </ion-list>
+  -->
+
 </ion-content>
