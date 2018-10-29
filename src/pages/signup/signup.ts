@@ -30,6 +30,7 @@ export class SignupPage {
   private signupSuccessString: string;
   private existingUserError: string;
   private invalidPasswordError: string;
+  private emailConfirmError: string;
 
   constructor(public navCtrl: NavController,
     public user: User,
@@ -42,14 +43,14 @@ export class SignupPage {
       this.signupSuccessString = values.SIGNUP_SUCCESS;
       this.existingUserError = values.EXISTING_USER_ERROR;
       this.invalidPasswordError = values.INVALID_PASSWORD_ERROR;
-      this.EmailConfirmError = values.EMAIL_CONFIRM_ERROR;
+      this.emailConfirmError = values.EMAIL_CONFIRM_ERROR;
     })
   }
 
   doSignup() {
     if(this.account.email !== this.account.email_confirm) {
       let toast = this.toastCtrl.create({
-          message: displayError,
+          message: this.emailConfirmError,
           duration: 3000,
           position: 'middle'
       });
