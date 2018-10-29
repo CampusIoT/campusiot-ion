@@ -1,12 +1,15 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Welcome, {{account?.firstName}}!
+      <ion-icon name="contact" start-item></ion-icon> {{account?.firstName}}
     </ion-title>
     <ion-buttons end>
-      <button ion-button (click)="logout()" id="logout">
-        Logout
+      <button ion-button icon-only (click)="logout()" id="logout">
+          <ion-icon name="log-out"></ion-icon>
       </button>
+      <!--<button ion-button (click)="logout()" id="logout">
+        Logout
+      </button>-->
     </ion-buttons>
   </ion-navbar>
 </ion-header>
