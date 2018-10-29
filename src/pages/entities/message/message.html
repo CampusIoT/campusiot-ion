@@ -1,6 +1,9 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Messages</ion-title>
+        <ion-title>
+          <ion-icon name="mail" item-start></ion-icon>
+           {{ 'MESSAGES' | translate }}
+        </ion-title>
         <!--
         <ion-buttons end>
             <button ion-button icon-only (click)="open()">
@@ -27,11 +30,18 @@
                 <!-- todo: special handling for translating enum - {{'Network.' + message.network}}" -->
                 <p>{{message.network}}</p>
 <!--            <p>{{message.payload}}</p> -->
-<!--            <p>{{message.json}}</p>
-                <p>{{message.latitude}}</p>
-                <p>{{message.longitude}}</p>
-                <p>{{message.altitude}}</p>
-                <p>{{message.batteryLevel}}</p> -->
+<!--            <p>{{message.json}}</p> -->
+                <p>
+                  <span *ngIf="message.latitude">
+                  <ion-icon name="map" item-start></ion-icon>{{message.latitude}},{{message.longitude}}
+                  </span>
+                  <span *ngIf="message.altitude">
+                  {{message.altitude}}m
+                  </span>
+                  <span *ngIf="message.batteryLevel">
+                  <ion-icon name="battery-full" item-start></ion-icon>{{message.batteryLevel}}
+                  </span>
+                </p>
             </button>
             <!--
             <ion-item-options>

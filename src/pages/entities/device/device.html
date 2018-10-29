@@ -1,11 +1,16 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Devices</ion-title>
+        <ion-title>
+          <ion-icon name="cube" item-start></ion-icon>
+          {{ 'DEVICES' | translate }}
+        </ion-title>
+        <!--
         <ion-buttons end>
             <button ion-button icon-only (click)="open()">
                 <ion-icon name="add"></ion-icon>
             </button>
         </ion-buttons>
+        -->
     </ion-navbar>
 </ion-header>
 <!-- todo: add elasticsearch support -->
@@ -19,8 +24,9 @@
             <button ion-item (click)="detail(device)">
                 <h2>{{device.name}}</h2>
                 <p>{{device.deveui}}</p>
-                <p>{{device.location}}</p>
-                <p>{{device.lastMessageAt | date:'medium'}}</p>
+                <p>
+                <span>{{device.location}}</span>
+                <span>{{device.lastMessageAt | date:'medium'}}</span>
                 <!-- todo: special handling for translating enum - {{'DeviceModel.' + device.model}}" -->
 <!--                <p>{{device.model}}</p> -->
                 <!-- todo: special handling for translating enum - {{'Network.' + device.network}}" -->
@@ -39,7 +45,21 @@
                 <p>{{device.longitude}}</p>
                 <p>{{device.altitude}}</p>
                <p>{{device.batteryLevel}}</p> -->
+               <span>
+                 <span *ngIf="device.latitude">
+                 <ion-icon name="map" item-start></ion-icon>{{device.latitude}},{{device.longitude}}
+                 </span>
+                 <span *ngIf="device.altitude">
+                 {{device.altitude}}m
+                 </span>
+                 <span *ngIf="device.batteryLevel">
+                 <ion-icon name="battery-full" item-start></ion-icon>{{device.batteryLevel}}
+                 </span>
+               </span>
+               </p>
+
             </button>
+            <!--
             <ion-item-options>
                 <button ion-button color="primary" (click)="open(slidingItem, device)">
                     {{ 'EDIT_BUTTON' | translate }}
@@ -48,9 +68,10 @@
                     {{ 'DELETE_BUTTON' | translate }}
                 </button>
             </ion-item-options>
+            -->
         </ion-item-sliding>
     </ion-list>
     <ion-item *ngIf="!devices?.length">
-        No Devices found.
+        {{ 'NO_DEVICES_FOUND' | translate }}
     </ion-item>
 </ion-content>

@@ -1,6 +1,14 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Message</ion-title>
+        <ion-title>
+          <ion-icon name="mail" item-start></ion-icon>
+           {{ 'MESSAGE' | translate }}
+         </ion-title>
+         <ion-buttons end>
+             <button ion-button icon-only (click)="detailDevice(message.sentById)">
+                 <ion-icon name="cube"></ion-icon>
+             </button>
+         </ion-buttons>
     </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -50,33 +58,29 @@
                 <span>{{message.json}}</span>
             </div>
         </ion-item>
-        <ion-item>
-            <ion-label fixed>Latitude</ion-label>
+        <ion-item *ngIf="message.latitude">
+            <ion-label fixed>Position</ion-label>
             <div item-content>
-                <span>{{message.latitude}}</span>
+                <ion-icon name="locate" item-start (click)="map(message)"></ion-icon>
+                <span>{{message.latitude}},{{message.longitude}}</span>
             </div>
         </ion-item>
-        <ion-item>
-            <ion-label fixed>Longitude</ion-label>
-            <div item-content>
-                <span>{{message.longitude}}</span>
-            </div>
-        </ion-item>
-        <ion-item>
+        <ion-item *ngIf="message.altitude">
             <ion-label fixed>Altitude</ion-label>
             <div item-content>
-                <span>{{message.altitude}}</span>
+                <span>{{message.altitude}} m</span>
             </div>
         </ion-item>
-        <ion-item>
+        <ion-item *ngIf="message.batteryLevel">
             <ion-label fixed>Battery Level</ion-label>
             <div item-content>
-                <span>{{message.batteryLevel}}</span>
+                <ion-icon name="battery-full" item-start></ion-icon>
+                <span>{{message.batteryLevel}} %</span>
             </div>
         </ion-item>
         <ion-item>
-            <ion-label fixed>Device Owner</ion-label>
-            <div item-content>{{message.deviceOwnerLogin}}</div>
+            <ion-label fixed>message Owner</ion-label>
+            <div item-content>{{message.messageOwnerLogin}}</div>
         </ion-item>
     </ion-list>
 

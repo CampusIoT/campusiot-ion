@@ -1,6 +1,9 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Device</ion-title>
+        <ion-title>
+          <ion-icon name="cube" item-start></ion-icon>
+          {{ 'DEVICE' | translate }}
+        </ion-title>
         <ion-buttons start>
             <button ion-button (click)="cancel()">
                 <span color="primary" showWhen="ios">
@@ -26,6 +29,12 @@
                 <ion-label>ID</ion-label>
                 <ion-input type="hidden" id="id" formControlName="id" readonly></ion-input>
             </ion-item>
+            <ion-item [hidden]="!form.id">
+                <ion-label>DevEUI</ion-label>
+                <div item-content>
+                    <span>{{device.deveui}}</span>
+                </div>
+            </ion-item>
             <ion-item>
                 <ion-input type="text" placeholder="Name" formControlName="name"></ion-input>
             </ion-item>
@@ -45,6 +54,7 @@
                         <ion-option value="UNKNOWN">UNKNOWN</ion-option>
                 </ion-select>
             </ion-item>
+            <!--
             <ion-item>
                 <ion-label>Network</ion-label>
                 <ion-select formControlName="network" id="field_network" >
@@ -55,13 +65,13 @@
                 </ion-select>
             </ion-item>
             <ion-item>
-                <ion-input type="text" placeholder="Deveui" formControlName="deveui"></ion-input>
+                <ion-input type="text" placeholder="DevEUI" formControlName="deveui"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-input type="text" placeholder="Appeui" formControlName="appeui"></ion-input>
+                <ion-input type="text" placeholder="AppEUI" formControlName="appeui"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-input type="text" placeholder="Appkey" formControlName="appkey"></ion-input>
+                <ion-input type="text" placeholder="AppKey" formControlName="appkey"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-input type="number" placeholder="Delay Before Offline" formControlName="delayBeforeOffline"></ion-input>
@@ -108,6 +118,7 @@
                     <ion-option [value]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</ion-option>
                 </ion-select>
             </ion-item>
+            -->
         </ion-list>
     </form>
 </ion-content>

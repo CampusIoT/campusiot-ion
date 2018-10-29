@@ -1,6 +1,17 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Device</ion-title>
+        <ion-title>
+          <ion-icon name="cube" item-start></ion-icon>
+          {{ 'DEVICE' | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="open(device)">
+                <ion-icon name="construct"></ion-icon>
+            </button>
+            <button ion-button icon-only (click)="openMessage(device.deveui)">
+                <ion-icon name="mail"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -83,28 +94,24 @@
                 <span>{{device.fcnt}}</span>
             </div>
         </ion-item>
-        <ion-item>
-            <ion-label fixed>Latitude</ion-label>
+        <ion-item *ngIf="device.latitude">
+            <ion-label fixed>Position</ion-label>
             <div item-content>
-                <span>{{device.latitude}}</span>
+                <ion-icon name="locate" item-start (click)="map(device)"></ion-icon>
+                <span>{{device.latitude}},{{device.longitude}}</span>
             </div>
         </ion-item>
-        <ion-item>
-            <ion-label fixed>Longitude</ion-label>
-            <div item-content>
-                <span>{{device.longitude}}</span>
-            </div>
-        </ion-item>
-        <ion-item>
+        <ion-item *ngIf="device.altitude">
             <ion-label fixed>Altitude</ion-label>
             <div item-content>
-                <span>{{device.altitude}}</span>
+                <span>{{device.altitude}} m</span>
             </div>
         </ion-item>
-        <ion-item>
+        <ion-item *ngIf="device.batteryLevel">
             <ion-label fixed>Battery Level</ion-label>
             <div item-content>
-                <span>{{device.batteryLevel}}</span>
+                <ion-icon name="battery-full" item-start></ion-icon>
+                <span>{{device.batteryLevel}} %</span>
             </div>
         </ion-item>
         <ion-item>
@@ -113,5 +120,7 @@
         </ion-item>
     </ion-list>
 
-    <button ion-button block (click)="open(device)">{{ 'EDIT_BUTTON' | translate }}</button>
+    <!--
+      <button ion-button block (click)="open(device)">{{ 'EDIT_BUTTON' | translate }}</button>
+    -->
 </ion-content>

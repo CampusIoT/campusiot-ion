@@ -16,7 +16,8 @@ import { MessageService } from './message.provider';
 export class MessageDetailPage {
     message: Message;
 
-    constructor(private dataUtils: JhiDataUtils, private navCtrl: NavController, private modalCtrl: ModalController, params: NavParams,
+    constructor(private dataUtils: JhiDataUtils, private navCtrl: NavController,
+                private modalCtrl: ModalController, params: NavParams,
                 private messageService: MessageService, private toastCtrl: ToastController) {
         this.message = new Message();
         this.message.id = params.get('id');
@@ -54,7 +55,15 @@ export class MessageDetailPage {
     }
 
     toHexstring(base64: string) {
-        return base64;
+        if (base64) {
+          var buf = Buffer.from(base64, 'base64');
+          return buf.toString('hex');
+        } else {
+          return base64;
+        }
     }
 
+    map(message: Message) {
+      this.navCtrl.push('MapPage', {message: Message});
+    }
 }

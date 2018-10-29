@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, ModalController, NavParams, NavController, ToastController } from 'ionic-angular';
 import { Device } from './device.model';
 import { DeviceService } from './device.provider';
 
@@ -14,7 +14,7 @@ import { DeviceService } from './device.provider';
 export class DeviceDetailPage {
     device: Device;
 
-    constructor(private modalCtrl: ModalController, params: NavParams,
+    constructor(private navCtrl: NavController, private modalCtrl: ModalController, params: NavParams,
                 private deviceService: DeviceService, private toastCtrl: ToastController) {
         this.device = new Device();
         this.device.id = params.get('id');
@@ -39,4 +39,11 @@ export class DeviceDetailPage {
         modal.present();
     }
 
+    openMessage(deveui: string) {
+        this.navCtrl.push('MessagePage', {deveui: deveui});
+    }
+
+    map(device: Device) {
+      this.navCtrl.push('MapPage', {device: device});
+    }
 }

@@ -1,6 +1,9 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Message</ion-title>
+        <ion-title>
+          <ion-icon name="mail" item-start></ion-icon>
+           {{ 'MESSAGE' | translate }}
+        </ion-title>
         <ion-buttons start>
             <button ion-button (click)="cancel()">
                 <span color="primary" showWhen="ios">
